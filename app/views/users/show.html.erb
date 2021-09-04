@@ -12,7 +12,12 @@
 
 <p>
   <strong>First Content:</strong>
-  <%= @user.microposts.first.content %>
+  <%= 
+    if @user.microposts.first.present? then
+      @user.microposts.first.content
+    else
+      'no content'
+    end %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
